@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Formato de codificación UTF-8 para ciertos simbolos -->
+  <meta charset="UTF-8">
+  <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <link href="lib/style.css" rel="stylesheet" type="text/css" />
+  <title>Grafos Aleatorios Dinámicos</title>
+
+</head>
+
+<body>
+  <h1 class="text-center">Grafos Aleatorios Dinámicos</h1>
+  <div class='row'>
+    <div class='col-xs-9' id="mynetwork">
+      
+    </div>
+    <div class='col-xs-3'>
+      <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Parámetros</h3>
+            </div>
+            <div class="panel-body">
+            <div id="controles">
+              <label>Modelo</label><br>
+
+              <select id="grafo" class="form-control">
+                  <option value="arbol">Árbol Balanceado</option>
+                  <option value="barabasi">Barabási-Albert</option>
+                  <option value="erdosRenyiP">Erdös-Renyi (Probabilidad)</option>
+                  <option value="erdosRenyiM">Erdös-Renyi (Aristas)</option>
+                  <option value="wattsStrogatzA">Watts-Strogatz (Alpha)</option>   
+                  <option value="wattsStrogatzB">Watts-Strogatz (Beta)</option>
+              </select>
+
+              <br>
+              <div style="width: 100%">
+                  <div class="form-group" >
+                    <div id="arbol" class="params">                 
+                       <div >
+                            <label>Número de hijos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                        </div>
+                        <label>Altura<input class="form-control" id="alturaArbol" value="2" type="input" required></label>
+                    </div>
+                    <div id="barabasi" class="params">
+                      <div >
+                         <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                      </div>
+                        <label>m0<input class="form-control" id="m0" type="input" required=""></label>
+                        <label>M<input id="M" class="form-control" type="input"requied></label>
+                        <br><span>M debe ser menor o igual a m0</span>
+                        </div>
+                    <div id="erdosRenyiP" class="params">
+                      <div >
+                          <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                      </div>
+                            <label>Probabilidad<input class="form-control" id="ERP" type="input" required=""></label>
+                        </div>
+                    <div id="erdosRenyiM" class="params">
+                      <div >
+                         <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                      </div>
+                        <label>Número de Vértices<input class="form-control" id="ERE" type="input" required></label>
+                        <br><span>Debe ser menor al número de nodos</span>
+                    </div>
+                    <div id="wattsStrogatzA" class="params">
+                      <div >
+                          <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                        </div>
+                        <label>K<input id="wattsStrogatzAlphaK" class="form-control"  type="input"></label>
+                        <span> N > K > 1 </span>
+                        <label>alpha<input class="form-control" id="wattsStrogatzAlpha" type="input" required></label>
+                    </div>
+                    <div id="wattsStrogatzB" class="params">
+                        <div >
+                            <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required>
+                            </label>
+                         </div>
+                        <label>K<input class="form-control" id="wattsStrogatzBetaK" type="input" ></label>
+                        <span> N > K > 1 </span>
+                        <label>beta<input class="form-control" title="Debe ser número par." id="wattsStrogatzBeta" value="2"  type="number" name="quantity" step="2" ></label>                    
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div id="controles">
+              <label>Iteración</label><br>
+
+              <select id="iteration" class="form-control" >
+                  <option value="user" data-toggle="tooltip" title="El usuario indica cada cuantos segundos se generaran nuevos nodos.">
+                  Elegido por el Usuario</option>
+                  <option value="random" data-toggle="tooltip" title="El número de segundos en el que se generan nuevos nodos variara aleatoriamente entre cada iteración.">
+                  Aleatoria</option>
+              </select>
+              <br>
+              <div style="width: 100%">               
+                  <div class="form-inline" >
+                    <div id="user" class="params2">
+                          <label>Se generaran nuevos nodos cada</label>
+                      <input class="form-control" id="user-seconds" value="2" type="input" required=""><span>    segundos</span>
+                    </div>
+                    <div id="random" class="params2">
+                           <label>Se generaran nuevos nodos cada</label>
+                      <span class="form-control" id="random-seconds" value="-" type="input" readonly></span><span>   segundos</span>
+                    </div>                  
+                  </div>
+              </div>
+          </div>
+              <div id="contenedor row text-center" style="margin-left: 31px";>
+                  <div class="timer" id="Hours">00</div>
+                  <div class="timer" id="Minutes">:00</div>
+                  <div class="timer" id="Seconds">:00</div>
+                  <div class="timer" id="Centiseconds">:00</div>
+                  <div class='row'>
+                    <input type="button" class="boton" id="start" value="Start &#9658;" onclick="start();">
+                    <input type="button" class="boton" id="stop" value="Stop &#8718;" onclick="stop();" disabled> 
+                    <input type="button" class="boton" id="reset" value="Reset &#8635;" onclick="reset();" disabled>
+                  </div>
+              </div>
+                 
+            </div>
+         </div>
+      </div>
+    </div>
+      
+   
+            
+          
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/exampleUtil.js"></script>
+    <script type="text/javascript" src="dist/vis.js"></script>
+    <script type="text/javascript" src="lib/script.js"></script>
+
+</body>
+</html>
