@@ -25,7 +25,7 @@
             <div id="controles">
               <label>Modelo</label><br>
 
-              <select id="grafo" class="form-control">
+              <select id="grafo" class="form-control" onClick="reset();">
                   <option value="arbol">Árbol Balanceado</option>
                   <option value="barabasi">Barabási-Albert</option>
                   <option value="erdosRenyiP">Erdös-Renyi (Probabilidad)</option>
@@ -87,7 +87,7 @@
           <div id="controles">
               <label>Iteración</label><br>
 
-              <select id="iteration" class="form-control" >
+              <select id="iteration" class="form-control" onClick="reset();">
                   <option value="user" data-toggle="tooltip" title="El usuario indica cada cuantos segundos se generaran nuevos nodos.">
                   Elegido por el Usuario</option>
                   <option value="random" data-toggle="tooltip" title="El número de segundos en el que se generan nuevos nodos variara aleatoriamente entre cada iteración.">
@@ -98,7 +98,7 @@
                   <div class="form-inline" >
                     <div id="user" class="params2">
                           <label>Se generaran nuevos nodos cada</label>
-                      <input class="form-control" id="user-seconds" value="2" type="input" required=""><span>    segundos</span>
+                      <input class="form-control" id="user-seconds" value="2" type="input" onClick="reset();" required=""><span>    segundos</span>
                     </div>
                     <div id="random" class="params2">
                            <label>Se generaran nuevos nodos cada</label>
