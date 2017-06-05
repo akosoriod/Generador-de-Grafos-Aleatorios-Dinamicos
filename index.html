@@ -39,47 +39,44 @@
                   <div class="form-group" >
                     <div id="arbol" class="params">                 
                        <div >
-                            <label>Número de hijos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                            <label>Número de hijos<input class="form-control" id="nodeCount1" value="2" type="input" required></label>
                         </div>
                         <label>Altura<input class="form-control" id="alturaArbol" value="2" type="input" required></label>
                     </div>
                     <div id="barabasi" class="params">
-                      <div >
-                         <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
-                      </div>
                         <label>m0<input class="form-control" id="m0" type="input" required=""></label>
                         <label>M<input id="M" class="form-control" type="input"requied></label>
                         <br><span>M debe ser menor o igual a m0</span>
                         </div>
                     <div id="erdosRenyiP" class="params">
                       <div >
-                          <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                          <label>Número de Nodos<input class="form-control" id="nodeCount2" value="2" type="input" required></label>
                       </div>
-                            <label>Probabilidad<input class="form-control" id="ERP" type="input" required=""></label>
+                            <label>Probabilidad<input class="form-control" id="ERP" type="number" name="quantity" step="0.1" min="0" max="1"  required=""></label>
                         </div>
                     <div id="erdosRenyiM" class="params">
                       <div >
-                         <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                         <label>Número de Nodos<input class="form-control" id="nodeCount3" value="2" type="input" required></label>
                       </div>
                         <label>Número de Vértices<input class="form-control" id="ERE" type="input" required></label>
                         <br><span>Debe ser menor al número de nodos</span>
                     </div>
                     <div id="wattsStrogatzA" class="params">
                       <div >
-                          <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required></label>
+                          <label>Número de Nodos<input class="form-control" id="nodeCount4" value="2" type="input" required></label>
                         </div>
                         <label>K<input id="wattsStrogatzAlphaK" class="form-control"  type="input"></label>
                         <span> N > K > 1 </span>
-                        <label>alpha<input class="form-control" id="wattsStrogatzAlpha" type="input" required></label>
+                        <label>alpha<input class="form-control" id="wattsStrogatzAlpha" value="0.5" type="number" name="quantity" step="0.1" min="0" max="1" required></label>
                     </div>
                     <div id="wattsStrogatzB" class="params">
                         <div >
-                            <label>Número de Nodos<input class="form-control" id="nodeCount" value="2" type="input" required>
+                            <label>Número de Nodos<input class="form-control" id="nodeCount5" value="2" type="input" required>
                             </label>
                          </div>
-                        <label>K<input class="form-control" id="wattsStrogatzBetaK" type="input" ></label>
+                        <label>K<input class="form-control" id="wattsStrogatzBetaK"  title="Debe ser número par." type="number" name="quantity" step="2" ></label>
                         <span> N > K > 1 </span>
-                        <label>beta<input class="form-control" title="Debe ser número par." id="wattsStrogatzBeta" value="2"  type="number" name="quantity" step="2" ></label>                    
+                        <label>beta<input class="form-control"  id="wattsStrogatzBeta" value="0.5"  type="number" name="quantity" step="0.1" min="0" max="1" ></label>                    
                     </div>
                   </div>
               </div>
